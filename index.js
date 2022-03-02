@@ -2,13 +2,19 @@
  * @format
  */
 
-import {AppRegistry} from 'react-native';
+import { LogBox } from 'react-native';
+import { AppRegistry } from 'react-native';
 import FlatListTestBed from './src/FlatListTestBed';
 // import BigListTestBed from './src/BigListTestBed';
 // import RecyclerListTestBed from './src/RecyclerListTestBed';
-import {name as appName} from './app.json';
+import SnapshotListTestBed from "./src/SnapshotListTestBed"
+import { name as appName } from './app.json';
 
-AppRegistry.registerComponent(appName, () => FlatListTestBed);
+LogBox.ignoreAllLogs();
+console.warn = () => { };
+
+AppRegistry.registerComponent(appName, () => SnapshotListTestBed);
+// AppRegistry.registerComponent(appName, () => FlatListTestBed);
 // AppRegistry.registerComponent(appName, () => BigListTestBed);
 // AppRegistry.registerComponent(appName, () => RecyclerListTestBed);
 

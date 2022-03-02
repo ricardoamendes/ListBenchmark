@@ -180,11 +180,9 @@
 			buildPhases = (
 				3E482C27206C4DEF2FE45063 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
-				6637BBEF27C58B7E006BBA7E /* Profiler Framework Integration */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
-				6637BBF027C58BD8006BBA7E /* Profiler Framework Info.plist Integration */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				C8AC78B0264D0F9F6F6D630E /* [CP] Embed Pods Frameworks */,
 				ADC9DDC32298B72B3CF5DC8E /* [CP] Copy Pods Resources */,
@@ -362,44 +360,6 @@
 			shellPath = /bin/sh;
 			shellScript = "# Only integrate the framework for the Debug configuration by default. Edit this section to integrate with additional configurations. For example, to add the \"Debug_Another\" and \"Release\" configurations, set the following line to:\n#       ALLOWED_CONFIGURATIONS=\"Debug,Debug_Another,Release\"\nALLOWED_CONFIGURATIONS=\"Debug\"\n\n# Leave this section empty to dynamically determine the path of the Detox Instruments app. If you are seeing issues, point explicitly to the app here.\nEXPLICIT_INSTRUMENTS_APP_PATH=\n\nif [ -z \"$EXPLICIT_INSTRUMENTS_APP_PATH\" ]; then\n  # Find where the Detox Instruments app is installed\n  INSTRUMENTS_APP_PATH=$(mdfind kMDItemCFBundleIdentifier=\"com.wix.DetoxInstruments\" | head -n 1)\nelse\n  INSTRUMENTS_APP_PATH=\"$EXPLICIT_INSTRUMENTS_APP_PATH\"\nfi\nPROFILER_BUILD_SCRIPT_PATH=\"${INSTRUMENTS_APP_PATH}/Contents/SharedSupport/Scripts/profiler_info_plist_phase.sh\"\nif [ \"${INSTRUMENTS_APP_PATH}\" -a -e \"${PROFILER_BUILD_SCRIPT_PATH}\" ]; then\n  echo Found integration script at \"${PROFILER_BUILD_SCRIPT_PATH}\"\n  # Run the Profiler framework integration script\n  \"${PROFILER_BUILD_SCRIPT_PATH}\" \"${CONFIGURATION}\" \"${ALLOWED_CONFIGURATIONS}\"\nelse\n  echo \"Profiler not included: Cannot find an installed Detox Instruments app.\"\nfi\n";
 		};
-		6637BBEF27C58B7E006BBA7E /* Profiler Framework Integration */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Profiler Framework Integration";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n# Only integrate the framework for the Debug configuration by default. Edit this section to integrate with additional configurations. For example, to add the \"Debug_Another\" and \"Release\" configurations, set the following line to:\n#       ALLOWED_CONFIGURATIONS=\"Debug,Debug_Another,Release\"\nALLOWED_CONFIGURATIONS=\"Release\"\n\n# Leave this section empty to dynamically determine the path of the Detox Instruments app. If you are seeing issues, point explicitly to the app here.\nEXPLICIT_INSTRUMENTS_APP_PATH=\n\nif [ -z \"$EXPLICIT_INSTRUMENTS_APP_PATH\" ]; then\n  # Find where the Detox Instruments app is installed\n  INSTRUMENTS_APP_PATH=$(mdfind kMDItemCFBundleIdentifier=\"com.wix.DetoxInstruments\" | head -n 1)\nelse\n  INSTRUMENTS_APP_PATH=\"$EXPLICIT_INSTRUMENTS_APP_PATH\"\nfi\nPROFILER_BUILD_SCRIPT_PATH=\"${INSTRUMENTS_APP_PATH}/Contents/SharedSupport/Scripts/profiler_build_phase.sh\"\nif [ \"${INSTRUMENTS_APP_PATH}\" -a -e \"${PROFILER_BUILD_SCRIPT_PATH}\" ]; then\n  echo Found integration script at \"${PROFILER_BUILD_SCRIPT_PATH}\"\n  # Run the Profiler framework integration script\n  \"${PROFILER_BUILD_SCRIPT_PATH}\" \"${CONFIGURATION}\" \"${ALLOWED_CONFIGURATIONS}\"\nelse\n  echo \"Profiler not included: Cannot find an installed Detox Instruments app.\"\nfi\n";
-		};
-		6637BBF027C58BD8006BBA7E /* Profiler Framework Info.plist Integration */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Profiler Framework Info.plist Integration";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n# Only integrate the framework for the Debug configuration by default. Edit this section to integrate with additional configurations. For example, to add the \"Debug_Another\" and \"Release\" configurations, set the following line to:\n#       ALLOWED_CONFIGURATIONS=\"Debug,Debug_Another,Release\"\nALLOWED_CONFIGURATIONS=\"Release\"\n\n# Leave this section empty to dynamically determine the path of the Detox Instruments app. If you are seeing issues, point explicitly to the app here.\nEXPLICIT_INSTRUMENTS_APP_PATH=\n\nif [ -z \"$EXPLICIT_INSTRUMENTS_APP_PATH\" ]; then\n  # Find where the Detox Instruments app is installed\n  INSTRUMENTS_APP_PATH=$(mdfind kMDItemCFBundleIdentifier=\"com.wix.DetoxInstruments\" | head -n 1)\nelse\n  INSTRUMENTS_APP_PATH=\"$EXPLICIT_INSTRUMENTS_APP_PATH\"\nfi\nPROFILER_BUILD_SCRIPT_PATH=\"${INSTRUMENTS_APP_PATH}/Contents/SharedSupport/Scripts/profiler_info_plist_phase.sh\"\nif [ \"${INSTRUMENTS_APP_PATH}\" -a -e \"${PROFILER_BUILD_SCRIPT_PATH}\" ]; then\n  echo Found integration script at \"${PROFILER_BUILD_SCRIPT_PATH}\"\n  # Run the Profiler framework integration script\n  \"${PROFILER_BUILD_SCRIPT_PATH}\" \"${CONFIGURATION}\" \"${ALLOWED_CONFIGURATIONS}\"\nelse\n  echo \"Profiler not included: Cannot find an installed Detox Instruments app.\"\nfi\n";
-		};
 		A130D646172E58E1D159D8F2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -572,6 +532,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = W943E4M6EZ;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = ListBenchmark/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -582,10 +543,6 @@
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
-					"-ObjC",
-					"-F\"${CODESIGNING_FOLDER_PATH}/${BUNDLE_FRAMEWORKS_FOLDER_PATH}\"",
-					"-framework",
-					DTXProfiler,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = ListBenchmark;
@@ -602,6 +559,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = W943E4M6EZ;
 				INFOPLIST_FILE = ListBenchmark/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

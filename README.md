@@ -21,5 +21,6 @@ Currently, `DetoxInstruments` only offers support for iOS. For more on this topi
 The alternatives that were considered for benchmark purposes against the React Native [FlatList](https://reactnative.dev/docs/flatlist) are:
 - [React Native Big List](https://github.com/marcocesarato/react-native-big-list)
 - [RecyclerListView](https://github.com/Flipkart/recyclerlistview)
+- Custom List based on View Snapshoting - `./src/SnapshotListTestBed.tsx`
 
 To profile the approaches above individually, edit from `index.js` your desired setup.
